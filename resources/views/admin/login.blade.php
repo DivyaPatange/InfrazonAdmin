@@ -48,6 +48,24 @@ function hideURLbar(){
 	
 		<!-- main content start-->
 		<div id="page-wrapper" style="margin:0px;">
+            <div class="main-page login-page">
+                <div class="row">
+                    <div class="col-12">
+                        @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>	
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @endif
+                        @if ($message = Session::get('danger'))
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ $message }}</strong>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
 			<div class="main-page login-page ">
 				<h2 class="title1">Login</h2>
 				<div class="widget-shadow">

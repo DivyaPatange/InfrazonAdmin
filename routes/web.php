@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\Admin\ModelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,5 +58,19 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::post('/login', [AdminLoginController::class, 'login'])->name('login.submit');
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
+
+    // Category Route
     Route::resource('/categories', CategoryController::class);
+    Route::post('/get-category', [CategoryController::class, 'getCategory'])->name('get.category');
+    Route::post('/category/update', [CategoryController::class, 'updateCategory']);
+
+    // Company Route
+    Route::resource('/companies', CompanyController::class);
+    Route::post('/get-company', [CompanyController::class, 'getCompany'])->name('get.company');
+    Route::post('/company/update', [CompanyController::class, 'updateCompany']);
+
+    // Model Route
+    Route::resource('/models', ModelController::class);
+    Route::post('/get-model', [ModelController::class, 'getModel'])->name('get.model');
+    Route::post('/model/update', [ModelController::class, 'updateModel']);
 });

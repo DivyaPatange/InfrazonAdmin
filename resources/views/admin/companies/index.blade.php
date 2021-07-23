@@ -1,5 +1,5 @@
 @extends('admin.admin_layout.main')
-@section('title', 'Category')
+@section('title', 'Company')
 @section('customcss')
 <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -18,17 +18,17 @@
 <div id="page-wrapper">
     <div class="main-page">
         <div class="forms">
-            <h2 class="title1">Category</h2>
+            <h2 class="title1">Company</h2>
             <div class="inline-form widget-shadow">
                 <div class="form-title">
-                    <h4>Add Category</h4>
+                    <h4>Add Company</h4>
                 </div>
                 <div class="form-body">
                     <div data-example-id="simple-form-inline"> 
                         <form class="form-inline" method="POST" id="submitForm"> 
                             <div class="form-group"> 
-                                <span id="cat_err" class="error"></span>
-                                <input type="text" class="form-control" id="category" name="category" placeholder="Category Name"> 
+                                <span id="company_err" class="error"></span>
+                                <input type="text" class="form-control" id="company" name="company" placeholder="Company Name"> 
                             </div> 
                             <div class="form-group"> 
                                 <span id="status_err" class="error"></span>
@@ -51,7 +51,7 @@
                     <thead> 
                         <tr> 
                             <th>#</th> 
-                            <th>Category</th> 
+                            <th>Company Name</th> 
                             <th>Status</th> 
                             <th>Action</th> 
                         </tr> 
@@ -71,13 +71,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Edit Category</h4>
+                <h4 class="modal-title">Edit Company</h4>
             </div>
         <form>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="edit_category">Category <span  style="color:red" id="e_cat_err"> </span></label>
-                    <input type="text" name="category" id="edit_category" class="form-control">
+                    <label for="edit_company">Company <span  style="color:red" id="e_company_err"> </span></label>
+                    <input type="text" name="company" id="edit_company" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="edit_status">Status <span  style="color:red" id="e_status_err"> </span></label>
@@ -102,13 +102,13 @@
 @section('customjs')
 <script>
 $('body').on('click', '#submitButton', function () {
-    var category = $("#category").val();
+    var company = $("#company").val();
     var status = $("#status").val();
     // alert(is_parent);
-    if (category=="") {
-        $("#cat_err").fadeIn().html("Required");
-        setTimeout(function(){ $("#cat_err").fadeOut(); }, 3000);
-        $("#category").focus();
+    if (company=="") {
+        $("#company_err").fadeIn().html("Required");
+        setTimeout(function(){ $("#company_err").fadeOut(); }, 3000);
+        $("#company").focus();
         return false;
     }
     if (status=="") {
@@ -119,11 +119,11 @@ $('body').on('click', '#submitButton', function () {
     }
     else
     { 
-        var datastring="status="+status+"&category="+category;
+        var datastring="status="+status+"&company="+company;
         // alert(datastring);
         $.ajax({
             type:"POST",
-            url:"{{ route('admin.categories.store') }}",
+            url:"{{ route('admin.companies.store') }}",
             data:datastring,
             cache:false,        
             success:function(returndata)
@@ -136,7 +136,7 @@ $('body').on('click', '#submitButton', function () {
         });
     }
 })
-var SITEURL = "{{ route('admin.categories.index')}}";
+var SITEURL = "{{ route('admin.companies.index')}}";
 $('#dataTableHover').DataTable({
     processing: true,
     serverSide: true,
@@ -146,7 +146,7 @@ $('#dataTableHover').DataTable({
     },
     columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false},
-            { data: 'category_name', name: 'category_name' },
+            { data: 'company_name', name: 'company_name' },
             { data: 'status', name: 'status' },
             {data: 'action', name: 'action', orderable: false},
         ],
@@ -159,7 +159,7 @@ function EditModel(obj,bid)
     // alert(datastring);
     $.ajax({
         type:"POST",
-        url:"{{ route('admin.get.category') }}",
+        url:"{{ route('admin.get.company') }}",
         data:datastring,
         cache:false,        
         success:function(returndata)
@@ -169,7 +169,7 @@ function EditModel(obj,bid)
             $("#myModal").modal('show');
             var json = JSON.parse(returndata);
             $("#id").val(json.id);
-            $("#edit_category").val(json.category_name);
+            $("#edit_company").val(json.company_name);
             $("#edit_status").val(json.status);
         }
         }
@@ -179,12 +179,12 @@ function EditModel(obj,bid)
 function checkSubmit()
 {
     var id = $("#id").val();
-    var category = $("#edit_category").val();
+    var company = $("#edit_company").val();
     var status = $("#edit_status").val();
-    if (category=="") {
-        $("#e_cat_err").fadeIn().html("Required");
-        setTimeout(function(){ $("#e_cat_err").fadeOut(); }, 3000);
-        $("#edit_category").focus();
+    if (company=="") {
+        $("#e_company_err").fadeIn().html("Required");
+        setTimeout(function(){ $("#e_company_err").fadeOut(); }, 3000);
+        $("#edit_company").focus();
         return false;
     }
     if (status=="") {
@@ -196,11 +196,11 @@ function checkSubmit()
     else
     { 
         $('#editService').attr('disabled',true);
-        var datastring="status="+status+"&id="+id+"&category="+category;
+        var datastring="status="+status+"&id="+id+"&company="+company;
         // alert(datastring);
         $.ajax({
             type:"POST",
-            url:"{{ url('/admin/category/update') }}",
+            url:"{{ url('/admin/company/update') }}",
             data:datastring,
             cache:false,        
             success:function(returndata)
@@ -221,7 +221,7 @@ $('body').on('click', '#delete', function () {
     if(confirm("Are You sure want to delete !")){
         $.ajax({
             type: "delete",
-            url: "{{ url('admin/categories') }}"+'/'+id,
+            url: "{{ url('admin/companies') }}"+'/'+id,
             success: function (data) {
             var oTable = $('#dataTableHover').dataTable(); 
             oTable.fnDraw(false);

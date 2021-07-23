@@ -11,8 +11,8 @@
                 <div class="r3_counter_box">
                     <i class="pull-left fa fa-dollar icon-rounded"></i>
                     <div class="stats">
-                    <h5><strong>$452</strong></h5>
-                    <span>Total Revenue</span>
+                    <h5><strong>52</strong></h5>
+                    <span>Total Machinery</span>
                     </div>
                 </div>
             </div>
@@ -20,8 +20,8 @@
                 <div class="r3_counter_box">
                     <i class="pull-left fa fa-laptop user1 icon-rounded"></i>
                     <div class="stats">
-                    <h5><strong>$1019</strong></h5>
-                    <span>Online Revenue</span>
+                    <h5><strong>19</strong></h5>
+                    <span>Rent Machine</span>
                     </div>
                 </div>
             </div>
@@ -29,8 +29,8 @@
                 <div class="r3_counter_box">
                     <i class="pull-left fa fa-money user2 icon-rounded"></i>
                     <div class="stats">
-                    <h5><strong>$1012</strong></h5>
-                    <span>Expenses</span>
+                    <h5><strong>12</strong></h5>
+                    <span>Hire Machine</span>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 <div class="r3_counter_box">
                     <i class="pull-left fa fa-users dollar2 icon-rounded"></i>
                     <div class="stats">
-                    <h5><strong>1450</strong></h5>
+                    <h5><strong>3</strong></h5>
                     <span>Total Users</span>
                     </div>
                 </div>

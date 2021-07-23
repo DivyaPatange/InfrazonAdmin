@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Admin\Category;
+use App\Models\Admin\Company;
 
-class CategoryController extends Controller
+class CompanyController extends Controller
 {
     public function __construct()
     {
@@ -20,9 +20,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $allCategory = Category::orderBy('id', 'DESC')->get();
+        $allCompany = Company::orderBy('id', 'DESC')->get();
         if(request()->ajax()) {
-            return datatables()->of($allCategory)
+            return datatables()->of($allCompany)
             ->addColumn('status', function($row){    
                 if($row->status == 1)
                 {
@@ -32,12 +32,12 @@ class CategoryController extends Controller
                     return '<span class="badge badge-danger">Inactive</span>';
                 }                                                                                                                                                                                                                                                                                      
             })
-            ->addColumn('action', 'admin.categories.action')
+            ->addColumn('action', 'admin.companies.action')
             ->rawColumns(['action', 'status'])
             ->addIndexColumn()
             ->make(true);
         }
-        return view('admin.categories.index');
+        return view('admin.companies.index');
     }
 
     /**
@@ -58,11 +58,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category->category_name = $request->category;
-        $category->status = $request->status;
-        $category->save();
-        return response()->json(['success' => 'Category Added Successfully!']);
+        $company = new Company();
+        $company->company_name = $request->company;
+        $company->status = $request->status;
+        $company->save();
+        return response()->json(['success' => 'Company Added Successfully!']);
     }
 
     /**
@@ -87,12 +87,12 @@ class CategoryController extends Controller
         //
     }
 
-    public function getCategory(Request $request)
+    public function getCompany(Request $request)
     {
-        $category = Category::where('id', $request->bid)->first();
-        if (!empty($category)) 
+        $company = Company::where('id', $request->bid)->first();
+        if (!empty($company)) 
         {
-            $data = array('id' =>$category->id, 'category_name' =>$category->category_name,'status' =>$category->status
+            $data = array('id' =>$company->id, 'company_name' =>$company->company_name,'status' =>$company->status
             );
         }else{
             $data =0;
@@ -100,16 +100,16 @@ class CategoryController extends Controller
         echo json_encode($data);
     }
 
-    public function updateCategory(Request $request)
+    public function updateCompany(Request $request)
     {
-        $category = Category::where('id', $request->id)->first();
+        $company = Company::where('id', $request->id)->first();
         $input_data = array (
-            'category_name' => $request->category,
+            'company_name' => $request->company,
             'status' => $request->status,
         );
 
-        Category::whereId($category->id)->update($input_data);
-        return response()->json(['success' => 'Category Updated Successfully']);
+        Company::whereId($company->id)->update($input_data);
+        return response()->json(['success' => 'Company Updated Successfully']);
     }
 
     /**
@@ -132,8 +132,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findorfail($id);
-        $category->delete();
-        return response()->json(['success' => 'Category Deleted Successfully!']);
+        $company = Company::findorfail($id);
+        $company->delete();
+        return response()->json(['success' => 'Company Deleted Successfully!']);
     }
 }

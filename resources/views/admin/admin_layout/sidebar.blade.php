@@ -24,6 +24,17 @@
                     </a>
                 </li>
                 <li class="treeview">
+                    <a href="{{ route('admin.companies.index') }}">
+                        <i class="fa fa-laptop"></i>
+                        <span>Company</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.models.index') }}">
+                        <i class="fa fa-th"></i> <span>Model</span>
+                    </a>
+                </li>
+                <!-- <li class="treeview">
                     <a href="#">
                         <i class="fa fa-laptop"></i>
                         <span>Components</span>
@@ -33,28 +44,27 @@
                         <li><a href="grids.html"><i class="fa fa-angle-right"></i> Grids</a></li>
                         <li><a href="media.html"><i class="fa fa-angle-right"></i> Media Css</a></li>
                     </ul>
-                </li>
-                <li class="treeview">
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-laptop"></i>
-                            <span>UI Elements</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="general.html"><i class="fa fa-angle-right"></i> General</a></li>
-                            <li><a href="icons.html"><i class="fa fa-angle-right"></i> Icons</a></li>
-                            <li><a href="buttons.html"><i class="fa fa-angle-right"></i> Buttons</a></li>
-                            <li><a href="typography.html"><i class="fa fa-angle-right"></i> Typography</a></li>
-                        </ul>
-                    </li>
-                <li>
+                </li> -->
+                <!-- <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-laptop"></i>
+                        <span>UI Elements</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="general.html"><i class="fa fa-angle-right"></i> General</a></li>
+                        <li><a href="icons.html"><i class="fa fa-angle-right"></i> Icons</a></li>
+                        <li><a href="buttons.html"><i class="fa fa-angle-right"></i> Buttons</a></li>
+                        <li><a href="typography.html"><i class="fa fa-angle-right"></i> Typography</a></li>
+                    </ul>
+                </li> -->
+                <!-- <li>
                     <a href="widgets.html">
                         <i class="fa fa-th"></i> <span>Widgets</span>
                         <small class="label pull-right label-info">08</small>
                     </a>
-                </li>
-                <li class="treeview">
+                </li> -->
+                <!-- <li class="treeview">
                     <a href="#">
                         <i class="fa fa-edit"></i> <span>Forms</span>
                         <i class="fa fa-angle-left pull-right"></i>
@@ -99,7 +109,7 @@
                 <li class="header">LABELS</li>
                 <li><a href="#"><i class="fa fa-angle-right text-red"></i> <span>Important</span></a></li>
                 <li><a href="#"><i class="fa fa-angle-right text-yellow"></i> <span>Warning</span></a></li>
-                <li><a href="#"><i class="fa fa-angle-right text-aqua"></i> <span>Information</span></a></li>
+                <li><a href="#"><i class="fa fa-angle-right text-aqua"></i> <span>Information</span></a></li> -->
             </ul>
         </div>
         <!-- /.navbar-collapse -->
